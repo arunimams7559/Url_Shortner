@@ -1,0 +1,114 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit URL</title>
+</head>
+<body>
+    <h1>Edit URL</h1>
+    <form action="/update-url" method="post">
+    <input type="hidden" name="username" value="<%= username %>"> 
+    <input type="hidden" name="id" value="<%= id %>">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" value="<%= title %>" required><br><br>
+    
+    <label for="url">URL:</label><br>
+    <input type="url" id="url" name="url" value="<%= url %>" required><br><br>
+    
+    <input type="submit" value="Update">
+</form>
+
+    <a href="/">Cancel</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit URL</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            color: #970747;
+        }
+
+        h1 {
+            text-align: center;
+            color: #970747;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #970747;
+            border-radius: 5px;
+            background-color: #F9F9F9;
+            color: #970747;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #970747;
+            color: #FFFFFF;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FFD1DC;
+            color: #970747;
+        }
+
+        .cancel-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #970747;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .cancel-link:hover {
+            color: #FFD1DC;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit URL</h1>
+        <form action="/update-url" method="post">
+            <input type="hidden" name="username" value="<%= username %>">
+            <input type="hidden" name="id" value="<%= id %>">
+            
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="<%= title %>" required>
+            
+            <label for="url">URL</label>
+            <input type="url" id="url" name="url" value="<%= url %>" required>
+            
+            <input type="submit" value="Update">
+        </form>
+        <a href="/welcome?username=<%=username%>" class="cancel-link">Cancel</a>
+    </div>
+</body>
+</html>
+
+

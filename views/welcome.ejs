@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome, <%= username %>!</h1>
+        <p>You have successfully logged in.</p>
+        <form action="/submit-url" method="post" class="url-form">
+            <input type="hidden" name="username" value="<%= username %>">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="url">URL:</label>
+                <input type="url" id="url" name="url" class="input-field" required>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+
+        <h2>Search URLs:</h2>
+<div class="search-container">
+    <input type="text" id="search" class="input-field" placeholder="Search by title or URL" /><br>
+    <button id="search-button" class="submit-button">Search</button>
+</div>
+<ul id="url-list" class="url-list">
+    <!-- Search results will be dynamically added here by the JavaScript below -->
+</ul>
+
+
+        <h2>Your URLs:</h2>
+        <ul class="url-list">
+            <% userUrls.forEach(url => { %>
+                <li>
+                    <strong>Title:</strong> <%= url.title %><br>
+                    <strong>Shortened URL:</strong> <a href="/<%= url.shortUrl %>">/<%= url.shortUrl %></a><br>
+                    <strong>Created At:</strong> <%= new Date(url.createdAt).toLocaleString() %><br>
+                    <form action="/edit-url" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= url._id %>">
+                        <input type="hidden" name="username" value="<%= username %>">
+                        <input type="hidden" name="title" value="<%= url.title %>">
+                        <input type="hidden" name="url" value="<%= url.url %>">
+                        <input type="submit" value="Edit">
+                    </form>
+                    <form action="/delete-url" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= url._id %>">
+                        <input type="hidden" name="username" value="<%= username %>">
+                        <input type="submit" value="Delete">
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+
+        <div class="pagination">
+            <% if (currentPage > 1) { %>
+                <a href="/welcome?username=<%= username %>&page=<%= currentPage - 1 %>">Previous</a>
+            <% } %>
+            <% if (currentPage < totalPages) { %>
+                <a href="/welcome?username=<%= username %>&page=<%= currentPage + 1 %>">Next</a>
+            <% } %>
+        </div>
+
+        <a href="/" class="logout-link">Logout</a>
+    </div>
+
+     <script>
+        document.getElementById('search-button').addEventListener('click', ()=> {
+            const query = document.getElementById('search').value;
+            const username = '<%= username %>'; // Get the username from EJS
+
+            // Make an AJAX request to the search endpoint
+            fetch(`/search/search?query=${encodeURIComponent(query)}&username=${encodeURIComponent(username)}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    // Clear the existing URL list
+                    const urlList = document.getElementById('url-list');
+                    urlList.innerHTML = '';
+
+                    // Display the search results
+                    data.forEach(url => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<strong>${url.title}</strong> - <a href="${url.url}">${url.url}</a>
+                        <form action="/edit-url" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="${url._id}">
+                             <input type="hidden" name="username" value="${username}">
+                            <input type="hidden" name="title" value="${url.title}">
+                            <input type="hidden" name="url" value="${url.url}">
+                            <input type="submit" value="Edit">
+                        </form>
+                        <form action="/delete-url" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="${url._id}">
+                            <input type="hidden" name="username" value="${username}">
+                            <input type="submit" value="Delete">
+                        </form>`;
+                        urlList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }); 
+    </script> 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+</html> 

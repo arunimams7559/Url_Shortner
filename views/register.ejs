@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+        body {
+            background-color: #F9F9F9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-container {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            padding: 40px;
+            width: 400px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .register-container h2 {
+            color: #970747;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #970747;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus {
+            border-color: #FFD1DC;
+            outline: none;
+            box-shadow: 0px 0px 5px rgba(255, 209, 220, 0.8);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #970747;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #FFD1DC;
+            color: #ffffff;
+        }
+
+        .login-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #970747;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .login-link:hover {
+            color: #FFD1DC;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Create an Account</h2>
+        <form action="/register" method="post" onsubmit="return validatePassword();">
+            <input type="text" id="new-username" name="username" placeholder="Enter username" class="input-field" required>
+            <input type="password" id="new-password" name="password" placeholder="Enter password" class="input-field" required>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" class="input-field" required>
+            <button type="submit" class="submit-button">Register</button>
+        </form>
+        <a href="/login" class="login-link">Already have an account? Login</a>
+    </div>
+
+    <script>
+        function validatePassword() {
+            const password = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Check if password is at least 8 characters long
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                return false;
+            }
+
+            // Check if password and confirm password match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

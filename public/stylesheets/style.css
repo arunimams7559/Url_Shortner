@@ -1,0 +1,162 @@
+/* General Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffffff, #f7e9f1);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.welcome-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 {
+  color: #970747;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Form Styling */
+.url-form, .search-container {
+    margin: 20px 0px; 
+
+  
+ 
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #970747;
+  margin-bottom: 8px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.input-field:focus {
+  border-color: #970747;
+  box-shadow: 0 0 5px rgba(151, 7, 71, 0.4);
+  outline: none;
+}
+
+.submit-button {
+  background: #970747;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+
+  
+}
+
+.submit-button:hover {
+  background: #bf0a5a;
+}
+
+/* URL List Styling */
+.url-list {
+  list-style: none;
+  padding: 0;
+}
+
+.url-list li {
+  background: #f7e9f1;
+  padding: 15px;
+  border: 1px solid #e6d3dc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.url-list li strong {
+  color: #970747;
+}
+
+.url-list li a {
+  color: #970747;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.url-list li a:hover {
+  text-decoration: underline;
+}
+
+.url-list form {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.url-list input[type="submit"] {
+  background: #ffffff;
+  color: #970747;
+  border: 1px solid #970747;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.url-list input[type="submit"]:hover {
+  background: #970747;
+  color: #ffffff;
+}
+
+/* Pagination Styling */
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  color: #970747;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.pagination a:hover {
+  text-decoration: underline;
+}
+
+/* Logout Link */
+.logout-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #ffffff;
+  background: #970747;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.logout-link:hover {
+  background: #bf0a5a;
+}

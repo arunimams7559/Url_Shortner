@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+        body {
+            background-color: #F9F9F9;
+            font-family: Arial, sans-serif;
+            color: #970747;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #970747;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #970747;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #FFD1DC;
+            color: #970747;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/index" method="post">
+        <h1>Welcome to <%= title %></h1>
+        <p>Explore and manage your data efficiently with our application.</p>
+        <a href="/login" class="button">Login</a>
+        <a href="/register" class="button">Register</a>
+    </div>
+</body>
+</html>

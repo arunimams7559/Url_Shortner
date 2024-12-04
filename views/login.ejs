@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+        body {
+            background-color: #F9F9F9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .login-container h1 {
+            color: #970747;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #970747;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus {
+            border-color: #FFD1DC;
+            outline: none;
+            box-shadow: 0px 0px 5px rgba(255, 209, 220, 0.8);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #970747;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #FFD1DC;
+            color: #970747;
+        }
+
+        .register-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #970747;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .register-link:hover {
+            color: #FFD1DC;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="/submit" method="post">
+            <input type="text" id="username" name="username" placeholder="Enter username" class="input-field" required>
+            <input type="password" id="password" name="password" placeholder="Enter password" class="input-field" required>
+            <button type="submit" class="submit-button">Login</button>
+        </form>
+        <a href="/register" class="register-link">New User? Register here</a>
+    </div>
+</body>
+</html>
